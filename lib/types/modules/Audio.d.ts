@@ -9,6 +9,9 @@ export default class WebAudio {
     protected audioCtx: AudioContext;
     protected audioBuffer: AudioBuffer;
     protected gainNode: GainNode;
+    protected mediaEl?: HTMLAudioElement | undefined;
+    protected mediaSrcNode?: MediaElementAudioSourceNode | undefined;
+    protected playbackRate: number;
     private filteredData;
     private arrayBuffer;
     constructor(props: IllestWaveformProps);
@@ -16,6 +19,9 @@ export default class WebAudio {
     get _audioDuration(): number;
     setupAudio(): Promise<void>;
     fetchAudioFile(): Promise<void>;
+    protected initWithMediaElement(src: string, connectToDestination?: boolean): Promise<void>;
+    setPlaybackRate(rate: number): void;
+    protected disposeMedia(): void;
     private createAudioBuffer;
     private createGainNode;
     private createFilterData;

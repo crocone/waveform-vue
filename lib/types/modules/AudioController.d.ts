@@ -21,10 +21,13 @@ export default class WebAudioController extends WebAudio {
     pick(pickedTime: number): void;
     replay(): void;
     finish(): void;
+    setPlaybackRate(rate: number): void;
     private initializeState;
     private createAudioBufferSourceNode;
     private connectDestination;
     private disconnectDestination;
     private setGainValue;
     private setGainLinearRamp;
+    private playWithMediaElement(): void;
+    private pauseWithMediaElement(): Promise<void>;
 }
