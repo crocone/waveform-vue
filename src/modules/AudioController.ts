@@ -16,6 +16,7 @@ export default class WebAudioController extends WebAudio {
   private playing: boolean
   private audioBufferSourceNode!: AudioBufferSourceNode | null
   private FADE_DURATION: number
+  private playbackRate: number
 
   constructor(props: IllestWaveformProps) {
     super(props)
@@ -24,6 +25,7 @@ export default class WebAudioController extends WebAudio {
     this.pickAt = 0
     this.playing = false
     this.FADE_DURATION = this.props.fade ? 0.08 : 0
+    this.playbackRate = 1
   }
 
   get _playing(): boolean {
@@ -89,6 +91,14 @@ export default class WebAudioController extends WebAudio {
     this.initializeState()
   }
 
+  public setPlaybackRate(rate: number): void {
+    this.playbackRate = rate
+
+    if (this.audioBufferSourceNode) {
+      this.audioBufferSourceNode.playbackRate.value = rate
+    }
+  }
+
   private initializeState() {
     this.playing = false
     this.startAt = 0
@@ -100,6 +110,7 @@ export default class WebAudioController extends WebAudio {
     if (this.audioBufferSourceNode) return
     this.audioBufferSourceNode = this.audioCtx.createBufferSource()
     this.audioBufferSourceNode.buffer = this.audioBuffer
+    this.audioBufferSourceNode.playbackRate.value = this.playbackRate
   }
 
   private connectDestination(): void {

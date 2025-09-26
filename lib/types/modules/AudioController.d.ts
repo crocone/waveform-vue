@@ -13,6 +13,7 @@ export default class WebAudioController extends WebAudio {
     private playing;
     private audioBufferSourceNode;
     private FADE_DURATION;
+    private playbackRate;
     constructor(props: IllestWaveformProps);
     get _playing(): boolean;
     get _currentTime(): number;
@@ -21,6 +22,7 @@ export default class WebAudioController extends WebAudio {
     pick(pickedTime: number): void;
     replay(): void;
     finish(): void;
+    setPlaybackRate(rate: number): void;
     private initializeState;
     private createAudioBufferSourceNode;
     private connectDestination;
