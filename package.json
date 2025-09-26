@@ -1,6 +1,6 @@
 {
   "name": "waveform-vue",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "leyoonafr",
   "license": "MIT",
   "description": "A lightweight and controllable audio visualization vue3 plugin",
