@@ -161,6 +161,10 @@ function finish(): void {
   emits('onFinish', true)
 }
 
+function setPlaybackRate(rate: number): void {
+  audioController.setPlaybackRate(rate)
+}
+
 function watchIsFinish(): void {
   watchEffect(() => {
     if (currentTime.value <= audioController._audioDuration) return
@@ -193,6 +197,7 @@ defineExpose({
   replay,
   getCurrentTime,
   getDuration,
+  setPlaybackRate,
 })
 </script>
 
