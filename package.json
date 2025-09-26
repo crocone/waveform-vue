@@ -19,13 +19,13 @@
   "files": [
     "lib"
   ],
-  "main": "./lib/1llest-waveform-vue.umd.js",
-  "module": "./lib/1llest-waveform-vue.mjs",
+  "main": "./lib/waveform-vue.umd.js",
+  "module": "./lib/waveform-vue.mjs",
   "types": "./lib/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./lib/1llest-waveform-vue.mjs",
-      "require": "./lib/1llest-waveform-vue.umd.js"
+      "import": "./lib/waveform-vue.mjs",
+      "require": "./lib/waveform-vue.umd.js"
     },
     "./lib/style.css": "./lib/style.css"
   },
